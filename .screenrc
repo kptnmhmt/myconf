@@ -1,0 +1,4 @@
+startup_message off
+vbell off
+defscrollback 10000000000
+termcapinfo xterm* ti@:te@
