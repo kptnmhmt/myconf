@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+apt update -y -qq
+
+apt upgrade --dry-run
+if [[ $(echo $?) == '0' ]]
+then
+  apt -y upgrade
+fi
+
+apt dist-upgrade --dry-run
+if [[ $(echo $?) == '0' ]]
+then
+  apt -y dist-upgrade
+fi
+
+apt -y autoremove
+apt autoclean
+
+if [[ $(echo $?) == '0' ]]
+then
+  echo -en "Update successful\n";
+else
+  echo -en "Update fail\n";
+fi
